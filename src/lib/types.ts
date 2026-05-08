@@ -85,7 +85,26 @@ export interface Institution {
 
 export interface ProfileResponse {
   user: User;
-  stats: { posts: number; challenges: number; followers: number; following: number };
+
+  stats: {
+    posts: number;
+    challenges: number;
+    followers: number;
+    following: number;
+  };
+
+  iFollowThem: boolean;
+}
+
+export interface FollowListItem {
+  id: number;
+  name: string;
+  email?: string;
+  headline?: string;
+  avatarUrl?: string;
+  iFollowThem: boolean;
+  isMyFollower?: boolean;   // only present on /followers response
+  canUnfollow?: boolean;    // only present on /following response
 }
 
 export const CATEGORIES = ['Art', 'Music', 'Dance', 'Code', 'Photography', 'Writing', 'Fitness', 'Cooking'];
